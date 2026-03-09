@@ -335,6 +335,9 @@ body {
 
 .result-section {
   animation: fadeIn 0.25s ease;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .result-section.hidden {
@@ -384,19 +387,23 @@ body {
 }
 
 .result-details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 1.25rem;
   margin-bottom: 1.5rem;
 }
 
 .classification-stamp {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.35rem 0.75rem;
+  padding: 0.3rem 0.65rem;
   border-radius: 2px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .classification-stamp.war {
@@ -412,9 +419,9 @@ body {
 }
 
 .result-reveal-text {
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text);
 }
 
 .btn-next {
