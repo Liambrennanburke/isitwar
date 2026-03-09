@@ -164,13 +164,26 @@ function endGame() {
 
   document.getElementById("end-title").textContent = title;
   document.getElementById("end-message").textContent = message;
+
+  const recap = document.getElementById("end-recap");
+  recap.innerHTML = state.history.map((h, i) => {
+    const c = state.conflicts[i];
+    const icon = h.correct ? "&#10003;" : "&#10007;";
+    const cls = h.correct ? "recap-correct" : "recap-wrong";
+    const actual = c.isWar ? "War" : c.officialClassification;
+    return `<div class="recap-row ${cls}">
+      <span class="recap-icon">${icon}</span>
+      <span class="recap-name">${c.name}</span>
+      <span class="recap-class">${actual}</span>
+    </div>`;
+  }).join("");
 }
 
 function shareResults() {
   const score = state.score;
   const grid = state.history.map((h) => (h.correct ? "\u2713" : "\u2717")).join(" ");
 
-  const text = `Is It War? \u2014 ${score}/10\n\n${grid}\n\nYou won't believe what the US has classified as "not a war."`;
+  const text = `Is It War? \u2014 ${score}/10\n\n${grid}\n\nYou won't believe what the US has classified as "not a war."\nhttps://isitwar.com`;
 
   if (navigator.share) {
     navigator.share({ title: "Is It War?", text }).catch(() => copyToClipboard(text));
@@ -192,6 +205,19 @@ function copyToClipboard(text) {
       prompt("Copy this:", text);
     });
 }
+
+const HOOKS = [
+  "58,220 Americans died in Vietnam.<br>Congress never called it a war.",
+  "The US invaded Russia with 13,000 troops.<br>Congress didn't even know.",
+  "The deadliest conflict in US history<br>was legally just 'putting down a rebellion.'",
+  "The Korean War killed 36,574 Americans.<br>Officially, it was a 'police action.'",
+  "The US bombed Yugoslavia for 78 days.<br>Congress voted against authorizing it.",
+  "We overthrew Panama's government<br>and called it a 'military operation.'",
+  "241 Marines died in Beirut.<br>It was classified as 'peacekeeping.'",
+];
+
+document.querySelector(".start-hook").innerHTML =
+  HOOKS[Math.floor(Math.random() * HOOKS.length)];
 
 document.getElementById("btn-start").addEventListener("click", startGame);
 
