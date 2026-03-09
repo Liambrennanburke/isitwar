@@ -156,6 +156,22 @@ function showResult(conflict, isCorrect) {
   badge.className = `classification-stamp ${conflict.isWar ? "war" : "not-war"}`;
 
   document.getElementById("result-reveal-text").textContent = conflict.reveal;
+
+  if (state.currentRound + 1 < ROUNDS_PER_GAME) {
+    preloadNext();
+  }
+}
+
+function preloadNext() {
+  const next = pickNext();
+  state.conflicts.push(next);
+  if (next.image) {
+    const link = document.createElement("link");
+    link.rel = "prefetch";
+    link.as = "image";
+    link.href = next.image;
+    document.head.appendChild(link);
+  }
 }
 
 function nextRound() {
@@ -163,7 +179,9 @@ function nextRound() {
   if (state.currentRound >= ROUNDS_PER_GAME) {
     endGame();
   } else {
-    state.conflicts.push(pickNext());
+    if (state.conflicts.length <= state.currentRound) {
+      state.conflicts.push(pickNext());
+    }
     renderRound();
   }
 }
