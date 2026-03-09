@@ -22,17 +22,34 @@ function showScreen(id) {
   window.scrollTo(0, 0);
 }
 
-function buildDeck() {
-  const wars = shuffle(CONFLICTS.filter((c) => c.isWar)).slice(0, 3);
-  const notWars = shuffle(CONFLICTS.filter((c) => !c.isWar)).slice(0, 7);
-  return shuffle([...wars, ...notWars]);
+function pickNext() {
+  const used = new Set(state.conflicts.map((c) => c.name));
+  const wars = shuffle(CONFLICTS.filter((c) => c.isWar && !used.has(c.name)));
+  const notWars = shuffle(CONFLICTS.filter((c) => !c.isWar && !used.has(c.name)));
+
+  const recent = state.history.slice(-3);
+  const notWarStreak =
+    recent.length >= 3 &&
+    recent.every((h) => !h.guessedWar && h.correct);
+
+  const remaining = ROUNDS_PER_GAME - state.conflicts.length;
+  const warsUsed = state.conflicts.filter((c) => c.isWar).length;
+  const needsWar = warsUsed === 0 && remaining <= 3;
+
+  if ((notWarStreak || needsWar) && wars.length > 0) {
+    return wars[0];
+  }
+
+  const pool = [...wars, ...notWars];
+  return pool[Math.floor(Math.random() * pool.length)];
 }
 
 function startGame() {
+  const first = shuffle(CONFLICTS)[0];
   state = {
     currentRound: 0,
     score: 0,
-    conflicts: buildDeck(),
+    conflicts: [first],
     history: [],
   };
 
@@ -145,6 +162,7 @@ function nextRound() {
   if (state.currentRound >= ROUNDS_PER_GAME) {
     endGame();
   } else {
+    state.conflicts.push(pickNext());
     renderRound();
   }
 }
