@@ -14,6 +14,7 @@ const CONFLICTS = [
     reveal:
       "Congress formally declared war on June 18, 1812. Despite burning the US capital and a failed invasion of Canada, the Treaty of Ghent essentially restored everything to pre-war borders — prompting some historians to call it 'the war that nobody won.'",
     icon: "🏴",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Battle_of_New_Orleans%2C_Jean_Hyacinthe_de_Laclotte.jpg/800px-Battle_of_New_Orleans%2C_Jean_Hyacinthe_de_Laclotte.jpg",
   },
   {
     name: "Mexican-American War",
@@ -29,6 +30,7 @@ const CONFLICTS = [
     reveal:
       "Congress declared war on May 13, 1846. A young congressman named Abraham Lincoln repeatedly demanded Polk show the exact 'spot' where American blood was shed — his 'Spot Resolutions' challenged whether the attack actually happened on US soil. Ulysses S. Grant, who fought in the war, later called it 'one of the most unjust ever waged by a stronger against a weaker nation.'",
     icon: "🌵",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Battle-of-Buena-Vista-Robinson.jpeg/800px-Battle-of-Buena-Vista-Robinson.jpeg",
   },
   {
     name: "Spanish-American War",
@@ -44,6 +46,7 @@ const CONFLICTS = [
     reveal:
       "Congress declared war on April 25, 1898. Secretary of State John Hay called it 'a splendid little war.' More than 6x as many soldiers died from typhoid, malaria, and yellow fever than from combat. The war marked the US transition from continental power to global empire — all in just 10 weeks.",
     icon: "⚓",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/USS_Maine_ACR-1_in_Havana_harbor_before_explosion_1898.jpg/800px-USS_Maine_ACR-1_in_Havana_harbor_before_explosion_1898.jpg",
   },
   {
     name: "World War I",
@@ -59,6 +62,7 @@ const CONFLICTS = [
     reveal:
       "Congress declared war on April 6, 1917. The Selective Service Act drafted 2.8 million men. The US lost 116,516 soldiers in just 19 months of fighting. The Meuse-Argonne Offensive alone — lasting 47 days — killed more Americans than the entire Vietnam War's deadliest year.",
     icon: "💣",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/American_troops_going_forward_to_the_battle_line_in_the_Forest_of_Argonne._France%2C_September_26%2C_1918._-_NARA_-_530748.jpg/800px-American_troops_going_forward_to_the_battle_line_in_the_Forest_of_Argonne._France%2C_September_26%2C_1918._-_NARA_-_530748.jpg",
   },
   {
     name: "World War II",
@@ -74,6 +78,7 @@ const CONFLICTS = [
     reveal:
       "Congress declared war on December 8, 1941 — the day after Pearl Harbor — with only a single dissenting vote (Representative Jeannette Rankin of Montana, a lifelong pacifist). Germany and Italy then declared war on the US, and Congress reciprocated. This was the last time Congress formally declared war on anyone.",
     icon: "✈️",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Raising_the_Flag_on_Iwo_Jima%2C_larger.jpeg/800px-Raising_the_Flag_on_Iwo_Jima%2C_larger.jpeg",
   },
 
   // ===== EARLY REPUBLIC — NOT DECLARED WARS =====
@@ -91,6 +96,7 @@ const CONFLICTS = [
     reveal:
       "It's literally named the 'Quasi-War' because Congress never declared war. Despite two years of naval combat, 514 American deaths, and 85 captured French ships, the conflict was resolved through diplomacy. The Supreme Court later ruled in Bas v. Tingy (1800) that it was a 'limited, partial war' — which is apparently a legal distinction.",
     icon: "⛵",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/USSConstellationVsInsurgente.jpg/800px-USSConstellationVsInsurgente.jpg",
   },
   {
     name: "First Barbary War",
@@ -106,6 +112,7 @@ const CONFLICTS = [
     reveal:
       "Congress authorized the use of force but never formally declared war. Jefferson argued that while he couldn't declare war, he could defend against attacks. This set a precedent that every subsequent president has used to deploy military force without a war declaration — a precedent we're still living with today.",
     icon: "🏴‍☠️",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Burning_of_the_uss_philadelphia.jpg/800px-Burning_of_the_uss_philadelphia.jpg",
   },
   {
     name: "Second Barbary War",
@@ -121,6 +128,7 @@ const CONFLICTS = [
     reveal:
       "Congress authorized the use of naval force against Algiers on March 3, 1815, but never declared war. The entire conflict lasted about three months. When Decatur returned home a hero, he gave a famous toast: 'Our Country! In her intercourse with foreign nations, may she always be in the right; but our country, right or wrong.'",
     icon: "🚢",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/DecaturOffAlgiers.jpg/800px-DecaturOffAlgiers.jpg",
   },
   {
     name: "First Seminole War",
@@ -136,6 +144,7 @@ const CONFLICTS = [
     reveal:
       "Congress never declared war or even authorized the invasion. Jackson exceeded his orders so dramatically that Congress debated censuring him — but his popularity with the public made him untouchable. His invasion of a foreign nation without Congressional approval set an early precedent for executive overreach that would echo through American history.",
     icon: "🐊",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Andrew_Jackson-_Seventh_President_of_the_United_States_LCCN90708631.jpg/800px-Andrew_Jackson-_Seventh_President_of_the_United_States_LCCN90708631.jpg",
   },
   // ===== 19TH CENTURY — NOT DECLARED WARS =====
   {
@@ -152,6 +161,7 @@ const CONFLICTS = [
     reveal:
       "1,535 Americans killed. Seven years of combat. $40 million spent. Three presidents oversaw it. But it was never a declared war — it was classified as an 'Indian removal campaign.' The Seminoles are the only Native American tribe that never signed a peace treaty with the United States.",
     icon: "🌿",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Osceola%2C_chief_of_the_Seminoles%3B_%281899%29_%2814749864271%29.jpg/800px-Osceola%2C_chief_of_the_Seminoles%3B_%281899%29_%2814749864271%29.jpg",
   },
   {
     name: "The American Civil War",
@@ -167,6 +177,7 @@ const CONFLICTS = [
     reveal:
       "The deadliest conflict in American history — up to 750,000 dead — was never a declared war. Lincoln deliberately treated it as an insurrection, not a war between nations. Declaring war would have legitimized the Confederacy as a sovereign country and potentially invited European powers to recognize it. So the bloodiest war in US history was, legally, just 'putting down a rebellion.'",
     icon: "⚔️",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Battle_of_Gettysburg%2C_by_Currier_and_Ives.png/800px-Battle_of_Gettysburg%2C_by_Currier_and_Ives.png",
   },
   {
     name: "Great Sioux War",
@@ -182,6 +193,7 @@ const CONFLICTS = [
     reveal:
       "The US violated its own treaty to seize gold-rich land, sent the Army to enforce it, lost one of the most famous battles in American history — and it was never a declared war. The Sioux were fighting to defend territory the US had legally guaranteed them. In 1980, the Supreme Court ruled the seizure of the Black Hills was illegal and awarded $105 million in compensation. The Sioux have refused to accept the money — now worth over $1.3 billion — because they want the land back.",
     icon: "🦅",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Sitting_Bull.jpg/800px-Sitting_Bull.jpg",
   },
   {
     name: "Philippine-American War",
@@ -197,6 +209,7 @@ const CONFLICTS = [
     reveal:
       "The US government called it an 'insurrection' — not a war — which framed the Filipinos as rebels against legitimate authority rather than a people fighting for independence. This classification helped avoid Congressional oversight and public scrutiny. Mark Twain, a vocal critic, proposed redesigning the American flag with 'the white stripes painted black and the stars replaced by the skull and cross bones.'",
     icon: "🌴",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Manila646_1899.jpg/800px-Manila646_1899.jpg",
   },
   {
     name: "Boxer Rebellion",
@@ -212,6 +225,7 @@ const CONFLICTS = [
     reveal:
       "5,000 US troops fought alongside seven other nations to invade a sovereign country and occupy its capital. McKinley sent troops without Congressional approval, claiming it was a rescue mission for besieged diplomats. The US share of the reparations was $25 million; in 1908, the US returned the excess funds, which China used to send students to American universities — the origin of Tsinghua University.",
     icon: "🐉",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Foreign_armies_in_Beijing_during_Boxer_Rebellion.jpg/800px-Foreign_armies_in_Beijing_during_Boxer_Rebellion.jpg",
   },
   {
     name: "Banana Wars",
@@ -227,6 +241,7 @@ const CONFLICTS = [
     reveal:
       "Decades of military occupations across nearly a dozen countries — but never a 'war.' Smedley Butler wrote in 1935: 'I spent 33 years in active military service... a high class muscle man for Big Business. I helped make Mexico safe for American oil interests. I helped make Haiti and Cuba a decent place for the National City Bank boys to collect revenues. I helped purify Nicaragua for the International Banking House of Brown Brothers.'",
     icon: "🍌",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/5th_Marines_in_Nicaragua.jpg/800px-5th_Marines_in_Nicaragua.jpg",
   },
   {
     name: "US Occupation of Veracruz",
@@ -242,6 +257,7 @@ const CONFLICTS = [
     reveal:
       "Wilson seized a foreign city and occupied it for seven months because of a perceived insult to the American flag. Congress never declared war. Fifty-five Medals of Honor were awarded for the operation — more than any other single engagement in the 20th century. Among the recipients: a young officer named Douglas MacArthur's nomination was submitted but ultimately not approved.",
     icon: "🇲🇽",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/1914_Occupation_of_Veracruz.jpg/800px-1914_Occupation_of_Veracruz.jpg",
   },
   {
     name: "Pancho Villa Expedition",
@@ -257,6 +273,7 @@ const CONFLICTS = [
     reveal:
       "10,000 US troops invaded Mexico for 11 months. Congress never declared war. It was officially a 'punitive expedition.' Pershing would later command all US forces in World War I. A young lieutenant named George S. Patton participated in what may have been the first motorized assault in US military history — he attacked a hacienda in three Dodge touring cars.",
     icon: "🐎",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Pancho_Villa_Expedition_-_Infantry_Columns_HD-SN-99-02007.JPEG/800px-Pancho_Villa_Expedition_-_Infantry_Columns_HD-SN-99-02007.JPEG",
   },
   {
     name: "Russian Civil War Intervention",
@@ -272,6 +289,7 @@ const CONFLICTS = [
     reveal:
       "The US literally invaded Russia with 13,000 troops. Congress never declared war, never authorized the intervention, and was barely consulted. Wilson acted entirely on executive authority. American soldiers fought and died in Russia's civil war — many without ever understanding the mission. Their bodies weren't recovered for years; the last were brought home in 1934.",
     icon: "❄️",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/The_North_Russian_Expeditionary_Force%2C_1919._Q69417.jpg/800px-The_North_Russian_Expeditionary_Force%2C_1919._Q69417.jpg",
   },
   {
     name: "US Occupation of Haiti",
@@ -287,6 +305,7 @@ const CONFLICTS = [
     reveal:
       "19 years of military occupation. A rewritten constitution. Forced labor. Thousands of Haitians killed. But never a declared war. The occupation devastated Haiti's political institutions and economy — consequences that scholars argue Haiti is still dealing with over a century later.",
     icon: "🏛️",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/US_Marines_and_sailors_from_the_USS_Washington_ashore_for_the_capture_of_Port-au-Prince%2C_Haiti%2C_1915.jpg/800px-US_Marines_and_sailors_from_the_USS_Washington_ashore_for_the_capture_of_Port-au-Prince%2C_Haiti%2C_1915.jpg",
   },
   // ===== COLD WAR ERA =====
   {
@@ -303,6 +322,7 @@ const CONFLICTS = [
     reveal:
       "Truman called it a 'police action' — not a war. 36,574 Americans died in a 'police action.' Congress never declared war; Truman used a UN Security Council resolution (passed only because the Soviet Union was boycotting the council) as authorization. The Korean War is sometimes called 'The Forgotten War' — and it was never even legally a war to begin with.",
     icon: "🪖",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Marine_Stinson_OY-1_and_Douglas_R4D_aircraft_at_Chosin_Reservoir_in_1950.jpg/800px-Marine_Stinson_OY-1_and_Douglas_R4D_aircraft_at_Chosin_Reservoir_in_1950.jpg",
   },
   {
     name: "Lebanon Crisis",
@@ -318,6 +338,7 @@ const CONFLICTS = [
     reveal:
       "14,000 US troops deployed to a foreign country. Congress never declared war. Eisenhower invoked executive authority and a vague congressional resolution. The Marines who stormed the beach at Beirut found themselves wading through a crowd of Lebanese civilians in swimsuits — one of the more surreal scenes in American military history.",
     icon: "🏖️",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/USS_Corregidor_CVE-58_off_Lebanon_1958.jpg/800px-USS_Corregidor_CVE-58_off_Lebanon_1958.jpg",
   },
   {
     name: "Bay of Pigs Invasion",
@@ -333,6 +354,7 @@ const CONFLICTS = [
     reveal:
       "A US-organized military invasion of a sovereign nation, using US-trained and US-armed forces launching from US-allied territory — classified as a 'covert operation.' JFK publicly denied US involvement even as the world watched. He later told an aide: 'How could I have been so stupid?' The debacle emboldened the Soviet Union and directly contributed to the Cuban Missile Crisis 18 months later.",
     icon: "🐷",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/BayofPigs.jpg/800px-BayofPigs.jpg",
   },
   {
     name: "Vietnam War",
@@ -348,6 +370,7 @@ const CONFLICTS = [
     reveal:
       "58,220 Americans killed. 2.7 million deployed. 20 years of fighting across three countries. 5 presidents. But Congress never declared war. The Gulf of Tonkin Resolution — passed after a reported North Vietnamese attack on US ships that likely never happened — authorized the president to use force. It was repealed in 1971, but the war continued for four more years anyway.",
     icon: "🚁",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Helicopters_near_An_Hoa_Combat_Base%2C_1969_%2820685869056%29.jpg/800px-Helicopters_near_An_Hoa_Combat_Base%2C_1969_%2820685869056%29.jpg",
   },
   {
     name: "Invasion of the Dominican Republic",
@@ -363,6 +386,7 @@ const CONFLICTS = [
     reveal:
       "42,000 troops invaded and occupied a sovereign nation. Johnson's list of 58 communists justifying the invasion was publicly discredited. Congress never declared war. The intervention effectively overturned a democratic movement and installed a US-friendly government — while being labeled a 'peacekeeping operation.'",
     icon: "🏝️",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/1965-american01.jpg/800px-1965-american01.jpg",
   },
   {
     name: "Cambodian Campaign",
@@ -378,6 +402,7 @@ const CONFLICTS = [
     reveal:
       "Nixon invaded a neutral country with 80,000 troops and called it an 'incursion' — carefully avoiding the word 'invasion.' Congress never authorized it. The backlash was so severe that Congress passed the Cooper-Church Amendment to cut off funding, and eventually the War Powers Resolution of 1973 to limit presidential war-making power. Presidents have largely ignored it ever since.",
     icon: "🌾",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/NixononCambodia.jpg/800px-NixononCambodia.jpg",
   },
   {
     name: "Operation Eagle Claw (Iran Hostage Rescue)",
@@ -393,6 +418,7 @@ const CONFLICTS = [
     reveal:
       "A military strike force was sent into a sovereign nation to conduct an armed assault on a compound in its capital city. It was classified as a 'rescue operation.' The disaster led directly to the creation of US Special Operations Command (SOCOM) and a complete overhaul of how special operations are organized and conducted.",
     icon: "🚁",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Operation_Eagle_Claw_remaining_in_Iran_01.jpg/800px-Operation_Eagle_Claw_remaining_in_Iran_01.jpg",
   },
   {
     name: "Lebanon Deployment",
@@ -408,6 +434,7 @@ const CONFLICTS = [
     reveal:
       "241 Americans killed in the deadliest terrorist attack against US forces up to that point. It was never a declared war — it was a 'multinational peacekeeping force.' Reagan called the attackers 'cowardly' but withdrew the troops rather than escalate. The bombing pioneered the large-scale suicide truck bomb, a tactic that would be used devastatingly for decades to come.",
     icon: "💥",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/U.S._Marines%2C_Checkpoint_%22Studio%22_54%2C_Beirut%2C_Lebanon%2C_1982_-_11036146345.jpg/800px-U.S._Marines%2C_Checkpoint_%22Studio%22_54%2C_Beirut%2C_Lebanon%2C_1982_-_11036146345.jpg",
   },
   {
     name: "Invasion of Grenada",
@@ -423,6 +450,7 @@ const CONFLICTS = [
     reveal:
       "An invasion of a sovereign country with 7,600 troops was officially a 'rescue operation.' The UN General Assembly voted 108 to 9 to condemn it as 'a flagrant violation of international law.' The medical students — the supposed reason for the invasion — were paraded in front of cameras kissing American soil when they returned. Reagan's approval rating jumped 4 points.",
     icon: "🌺",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/UH-1N_Operation_Urgent_Fury_Grenada_1983.JPEG/800px-UH-1N_Operation_Urgent_Fury_Grenada_1983.JPEG",
   },
   {
     name: "Tanker War (Operation Earnest Will)",
@@ -438,6 +466,7 @@ const CONFLICTS = [
     reveal:
       "The US fought its largest naval battle since WWII, destroyed half of Iran's navy, and accidentally shot down a civilian airliner killing 290 innocent people. It was 'naval escort operations.' Congress never declared war. The captain of the Vincennes received the Legion of Merit for his service. Iran Air Flight 655 remains one of the deadliest aviation incidents in history.",
     icon: "⚓",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/USS_Stark.jpg/800px-USS_Stark.jpg",
   },
   {
     name: "Invasion of Panama",
@@ -453,6 +482,7 @@ const CONFLICTS = [
     reveal:
       "The US invaded a country, overthrew its government, captured its leader, and installed a new president — all without declaring war. It was a 'military operation.' Noriega was flown to Miami and convicted of drug trafficking. The El Chorrillo neighborhood was so thoroughly destroyed that Panamanians call it 'little Hiroshima.'",
     icon: "🎖️",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Panama_7th_infantry_1990_DF-ST-91-02532.jpg/800px-Panama_7th_infantry_1990_DF-ST-91-02532.jpg",
   },
   {
     name: "Gulf War (Operation Desert Storm)",
@@ -468,6 +498,7 @@ const CONFLICTS = [
     reveal:
       "694,000 US troops. 35-nation coalition. 100,000+ air sorties. A 100-hour ground war. Congress authorized force but did NOT declare war — the Senate vote was close, 52-47. The 'Highway of Death' images were so gruesome that they influenced the decision to stop the ground offensive after just 100 hours, leaving Saddam in power for another 12 years.",
     icon: "🛢️",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/United_States_Army_M1A1_Abrams_tank_deployed_during_Operation_Desert_Storm.jpg/800px-United_States_Army_M1A1_Abrams_tank_deployed_during_Operation_Desert_Storm.jpg",
   },
   {
     name: "Intervention in Somalia",
@@ -483,6 +514,7 @@ const CONFLICTS = [
     reveal:
       "What began as humanitarian aid became the most intense urban combat US forces had experienced since Vietnam. Nearly 1,000 Somalis were killed in the Battle of Mogadishu — and the whole thing was classified as a 'humanitarian intervention.' The images of dead soldiers being dragged through streets made the US reluctant to intervene in future crises — including the 1994 Rwandan genocide.",
     icon: "🦅",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Black_Hawk_Down_Super64_over_Mogadishu_coast.jpg/800px-Black_Hawk_Down_Super64_over_Mogadishu_coast.jpg",
   },
   {
     name: "Bombing of Yugoslavia / Kosovo War",
@@ -498,6 +530,7 @@ const CONFLICTS = [
     reveal:
       "78 days of bombing a sovereign nation. 23,000 bombs dropped. No Congressional declaration of war. No UN authorization (Russia vetoed it). The House of Representatives actually voted AGAINST authorizing the air strikes 213-213 — a tie — but Clinton continued the bombing anyway, arguing NATO authority was sufficient. Congress literally voted to not authorize the operation, and it kept going.",
     icon: "🎯",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/USAF_B-2_Spirit.jpg/800px-USAF_B-2_Spirit.jpg",
   },
   {
     name: "Operation Desert Fox (Bombing of Iraq)",
@@ -513,6 +546,7 @@ const CONFLICTS = [
     reveal:
       "415 cruise missiles and 600 bombing sorties against a sovereign nation over 4 days — not a war. Clinton cited the 1991 Gulf War authorization and his inherent powers as Commander-in-Chief. The operation's timing during impeachment proceedings raised serious questions about whether military force was being used as a political tool.",
     icon: "🚀",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Desert_fox_missile.jpg/800px-Desert_fox_missile.jpg",
   },
 
   // ===== POST-9/11 AND MODERN =====
@@ -530,6 +564,7 @@ const CONFLICTS = [
     reveal:
       "America's longest war — 20 years across 4 presidents — was never a declared war. The 2001 AUMF that authorized it has been used to justify military operations in at least 22 countries. The war cost $2.3 trillion, killed over 2,400 Americans and 70,000+ Afghan civilians, and ended with the Taliban back in power — exactly where they started.",
     icon: "🏔️",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Helicopter_flying_over_mountains_of_Afghanistan_in_2002.jpg/800px-Helicopter_flying_over_mountains_of_Afghanistan_in_2002.jpg",
   },
   {
     name: "Iraq War",
@@ -545,6 +580,7 @@ const CONFLICTS = [
     reveal:
       "A full-scale invasion and 8-year occupation based on intelligence that was wrong. Over a million Americans served. Congress authorized the 'use of force' but did not declare war. The distinction allowed the executive branch to maintain control over the scope and conduct of the conflict with less Congressional oversight than a formal war declaration would have required.",
     icon: "🏜️",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/U.S._Army_soldiers_in_Baghdad%2C_Iraq%2C_in_April_2003.jpg/800px-U.S._Army_soldiers_in_Baghdad%2C_Iraq%2C_in_April_2003.jpg",
   },
   {
     name: "Military Intervention in Libya",
@@ -560,6 +596,7 @@ const CONFLICTS = [
     reveal:
       "The Obama administration introduced a new term to the lexicon: 'kinetic military action.' 7 months of bombing, 9,700 strike sorties, and regime change — but the administration argued it didn't constitute 'hostilities' under the War Powers Resolution because there were no US ground troops and the risk to American forces was minimal. Multiple legal advisors within the administration disagreed with this interpretation.",
     icon: "🎯",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Operation_Desert_Strike_-_Tomahawk_cruise_missiles_launch.jpg/800px-Operation_Desert_Strike_-_Tomahawk_cruise_missiles_launch.jpg",
   },
   {
     name: "Military Intervention in Syria",
@@ -575,6 +612,7 @@ const CONFLICTS = [
     reveal:
       "Thousands of airstrikes, ground troops occupying a third of a sovereign nation, direct combat with Russian mercenaries, and Tomahawk missile strikes against a government airfield — authorized under the 2001 AUMF, which was written to fight al-Qaeda. ISIS didn't even exist when the authorization was passed. US troops are still there, operating under a legal authority written for a different enemy in a different country over two decades ago.",
     icon: "🔥",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/U.S._Marines_and_Soldiers_Conduct_Joint_Security_Patrol_in_Syria.jpg/800px-U.S._Marines_and_Soldiers_Conduct_Joint_Security_Patrol_in_Syria.jpg",
   },
   {
     name: "Drone War in Pakistan",
@@ -590,6 +628,7 @@ const CONFLICTS = [
     reveal:
       "Over 400 strikes in a country the US was not at war with, killing an estimated 2,500–4,000 people — many of them unidentified at the time of the strike. The entire program was technically classified as a covert intelligence operation. The US government refused to officially acknowledge it existed for years, even as it was widely reported in the media.",
     icon: "🤖",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/MQ-1_Predator_unmanned_aircraft.jpg/800px-MQ-1_Predator_unmanned_aircraft.jpg",
   },
   {
     name: "Drone War in Yemen",
@@ -605,6 +644,7 @@ const CONFLICTS = [
     reveal:
       "Two decades of strikes in a country the US was never at war with. US drones have killed American citizens without trial. The US has supported a Saudi bombing campaign that has killed thousands of Yemeni civilians and created a famine affecting millions. All of it authorized under the same 2001 AUMF or under claimed inherent executive authority — never as a declared war.",
     icon: "📡",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/MQ-9_Reaper_UAV_%28cropped%29.jpg/800px-MQ-9_Reaper_UAV_%28cropped%29.jpg",
   },
   {
     name: "US Military Operations in West Africa",
@@ -620,5 +660,6 @@ const CONFLICTS = [
     reveal:
       "Most Americans learned the US had combat troops in Niger only when four soldiers came home in coffins. When asked to authorize the operations, Congress largely admitted they didn't know about them. Senator Lindsey Graham said: 'I didn't know there was 1,000 troops in Niger.' The US military operates across dozens of African countries under the 2001 AUMF and various executive authorities — all without a war declaration or, apparently, much Congressional awareness.",
     icon: "🌍",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flintlock_2018_training_in_Tahoua%2C_Niger_%2840718543344%29.jpg/800px-Flintlock_2018_training_in_Tahoua%2C_Niger_%2840718543344%29.jpg",
   },
 ];

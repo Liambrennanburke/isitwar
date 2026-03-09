@@ -22,11 +22,17 @@ function showScreen(id) {
   window.scrollTo(0, 0);
 }
 
+function buildDeck() {
+  const wars = shuffle(CONFLICTS.filter((c) => c.isWar)).slice(0, 3);
+  const notWars = shuffle(CONFLICTS.filter((c) => !c.isWar)).slice(0, 7);
+  return shuffle([...wars, ...notWars]);
+}
+
 function startGame() {
   state = {
     currentRound: 0,
     score: 0,
-    conflicts: shuffle(CONFLICTS).slice(0, ROUNDS_PER_GAME),
+    conflicts: buildDeck(),
     history: [],
   };
 
@@ -42,6 +48,17 @@ function renderRound() {
   document.getElementById("score-display").textContent = state.score;
   document.getElementById("progress-bar").style.width =
     `${(state.currentRound / ROUNDS_PER_GAME) * 100}%`;
+
+  const imgWrap = document.getElementById("conflict-image-wrap");
+  const img = document.getElementById("conflict-image");
+  if (c.image) {
+    img.src = c.image;
+    img.alt = c.name;
+    imgWrap.classList.remove("hidden");
+  } else {
+    imgWrap.classList.add("hidden");
+    img.src = "";
+  }
 
   document.getElementById("conflict-name").textContent = c.name;
   document.getElementById("years-text").textContent = c.years;
