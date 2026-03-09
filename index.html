@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is It War?</title>
+    <meta
+      name="description"
+      content="Think you know which US military conflicts were officially 'wars'? The answer might surprise you."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Code+Pro:wght@400;600&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- START SCREEN -->
+    <div id="screen-start" class="screen active">
+      <div class="start-container">
+        <h1 class="main-title">
+          <span class="title-is-it">Is it&nbsp;</span>
+          <span class="title-war">War</span><span class="title-q">?</span>
+        </h1>
+        <p class="start-hook">
+          58,220 Americans died in Vietnam.<br />
+          Congress never called it a war.
+        </p>
+        <button id="btn-start" class="btn btn-start">
+          Play<span class="btn-arrow">&rarr;</span>
+        </button>
+        <p class="start-footnote">10 rounds &middot; real history</p>
+      </div>
+    </div>
+
+    <!-- GAME SCREEN -->
+    <div id="screen-game" class="screen">
+      <header class="game-header">
+        <span class="logo-small">Is it War?</span>
+        <span id="round-indicator" class="round-indicator">1 / 10</span>
+        <span id="score-display" class="score-display">0</span>
+      </header>
+
+      <main class="game-main">
+        <div class="conflict-card" id="conflict-card">
+          <h2 class="conflict-name" id="conflict-name"></h2>
+
+          <div class="conflict-meta">
+            <div class="meta-item">
+              <span class="meta-label">Date</span>
+              <span class="meta-value" id="years-text"></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">President</span>
+              <span class="meta-value" id="president-text"></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">US Casualties</span>
+              <span class="meta-value" id="casualties-text"></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Forces</span>
+              <span class="meta-value" id="troops-text"></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Region</span>
+              <span class="meta-value" id="region-text"></span>
+            </div>
+          </div>
+
+          <p class="conflict-description" id="conflict-description"></p>
+        </div>
+
+        <!-- CHOICE BUTTONS -->
+        <div class="choice-section" id="choice-section">
+          <div class="choice-buttons">
+            <button
+              id="btn-war"
+              class="btn btn-choice btn-war"
+              onclick="handleGuess(true)"
+            >War</button>
+            <button
+              id="btn-not-war"
+              class="btn btn-choice btn-not-war"
+              onclick="handleGuess(false)"
+            >Not a War</button>
+          </div>
+        </div>
+
+        <!-- RESULT REVEAL -->
+        <div class="result-section hidden" id="result-section">
+          <div class="result-banner" id="result-banner">
+            <span class="result-verdict" id="result-verdict"></span>
+            <span class="result-answer" id="result-correct"></span>
+          </div>
+
+          <div class="result-details">
+            <span class="classification-stamp" id="classification-badge"></span>
+            <p class="result-reveal-text" id="result-reveal-text"></p>
+          </div>
+
+          <button
+            id="btn-next"
+            class="btn btn-next"
+            onclick="nextRound()"
+          >
+            Continue
+          </button>
+        </div>
+      </main>
+
+      <div class="progress-track">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- END SCREEN -->
+    <div id="screen-end" class="screen">
+      <div class="end-container">
+        <p class="end-kicker" id="end-title"></p>
+        <div class="end-score-block">
+          <span class="end-score" id="end-score"></span>
+          <span class="end-score-label">/10</span>
+        </div>
+        <p class="end-message" id="end-message"></p>
+        <hr class="rule" />
+        <blockquote class="end-quote">
+          The United States has fought in conflicts that killed hundreds of
+          thousands of Americans&hairsp;&mdash;&hairsp;and classified many of
+          them as anything <strong>other</strong> than war.
+        </blockquote>
+        <div class="end-actions">
+          <button class="btn btn-start" onclick="startGame()">
+            Play Again
+          </button>
+          <button
+            id="btn-share"
+            class="btn btn-outline"
+            onclick="shareResults()"
+          >
+            Copy Results
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>

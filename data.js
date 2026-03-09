@@ -1,0 +1,624 @@
+const CONFLICTS = [
+  // ===== OFFICIALLY DECLARED WARS =====
+  {
+    name: "War of 1812",
+    years: "1812–1815",
+    president: "James Madison",
+    casualties: "~15,000 US deaths",
+    troopsDeployed: "~286,000 served",
+    region: "North America / Atlantic",
+    description:
+      "The British Empire was impressing American sailors into the Royal Navy, arming Native American tribes on the frontier, and restricting US trade with Napoleonic France. Madison asked Congress for war. The conflict saw the British burn Washington D.C. to the ground — including the White House — and the US attempted to invade Canada multiple times. The Battle of New Orleans, won by Andrew Jackson, was fought two weeks after the peace treaty had already been signed because word hadn't traveled fast enough.",
+    officialClassification: "Declared War",
+    isWar: true,
+    reveal:
+      "Congress formally declared war on June 18, 1812. Despite burning the US capital and a failed invasion of Canada, the Treaty of Ghent essentially restored everything to pre-war borders — prompting some historians to call it 'the war that nobody won.'",
+    icon: "🏴",
+  },
+  {
+    name: "Mexican-American War",
+    years: "1846–1848",
+    president: "James K. Polk",
+    casualties: "~13,283 US deaths",
+    troopsDeployed: "~78,718 served",
+    region: "North America",
+    description:
+      "President Polk wanted to expand US territory to the Pacific. After Texas was annexed, Polk sent troops to a disputed border area between the Nueces River and the Rio Grande — territory Mexico considered its own. When Mexican forces attacked, Polk told Congress that Mexico had 'shed American blood upon American soil.' The war ended with the Treaty of Guadalupe Hidalgo, in which Mexico ceded 55% of its territory — what is now California, Nevada, Utah, Arizona, New Mexico, Colorado, and parts of Wyoming and Kansas.",
+    officialClassification: "Declared War",
+    isWar: true,
+    reveal:
+      "Congress declared war on May 13, 1846. A young congressman named Abraham Lincoln repeatedly demanded Polk show the exact 'spot' where American blood was shed — his 'Spot Resolutions' challenged whether the attack actually happened on US soil. Ulysses S. Grant, who fought in the war, later called it 'one of the most unjust ever waged by a stronger against a weaker nation.'",
+    icon: "🌵",
+  },
+  {
+    name: "Spanish-American War",
+    years: "1898",
+    president: "William McKinley",
+    casualties: "~2,446 US deaths (only 385 in combat — the rest from disease)",
+    troopsDeployed: "~306,760 served",
+    region: "Caribbean / Pacific",
+    description:
+      "When the USS Maine exploded and sank in Havana Harbor — likely from an internal coal fire, though Spain was blamed — newspapers run by William Randolph Hearst and Joseph Pulitzer whipped the public into a frenzy with the rallying cry 'Remember the Maine!' The conflict lasted just 10 weeks. Teddy Roosevelt charged up San Juan Hill with his 'Rough Riders.' Spain lost Cuba, Puerto Rico, Guam, and the Philippines. The US suddenly had a global empire.",
+    officialClassification: "Declared War",
+    isWar: true,
+    reveal:
+      "Congress declared war on April 25, 1898. Secretary of State John Hay called it 'a splendid little war.' More than 6x as many soldiers died from typhoid, malaria, and yellow fever than from combat. The war marked the US transition from continental power to global empire — all in just 10 weeks.",
+    icon: "⚓",
+  },
+  {
+    name: "World War I",
+    years: "1917–1918 (US involvement)",
+    president: "Woodrow Wilson",
+    casualties: "~116,516 US deaths",
+    troopsDeployed: "~4.7 million mobilized",
+    region: "Europe / Atlantic",
+    description:
+      "The 'Great War' had raged in Europe for three years before the US entered. German U-boats were sinking American merchant ships. Then British intelligence intercepted the Zimmermann Telegram, in which Germany offered Mexico an alliance to reconquer Texas, New Mexico, and Arizona. Wilson — who had won re-election in 1916 on the slogan 'He kept us out of war' — asked Congress for a declaration. Over 2 million US troops deployed to France, fighting in the Meuse-Argonne Offensive — the deadliest battle in American history with 26,277 killed.",
+    officialClassification: "Declared War",
+    isWar: true,
+    reveal:
+      "Congress declared war on April 6, 1917. The Selective Service Act drafted 2.8 million men. The US lost 116,516 soldiers in just 19 months of fighting. The Meuse-Argonne Offensive alone — lasting 47 days — killed more Americans than the entire Vietnam War's deadliest year.",
+    icon: "💣",
+  },
+  {
+    name: "World War II",
+    years: "1941–1945 (US involvement)",
+    president: "Franklin D. Roosevelt / Harry Truman",
+    casualties: "~405,399 US deaths",
+    troopsDeployed: "~16 million served",
+    region: "Global — Europe, Pacific, Africa, Atlantic",
+    description:
+      "On December 7, 1941, Japan launched a surprise attack on Pearl Harbor, killing 2,403 Americans and destroying much of the Pacific Fleet. Roosevelt called it 'a date which will live in infamy.' The US fought simultaneously in Europe — D-Day, the Battle of the Bulge, the liberation of concentration camps — and the Pacific — Iwo Jima, Okinawa, island-hopping across thousands of miles. The war ended after the US dropped atomic bombs on Hiroshima and Nagasaki, killing an estimated 200,000 people. 16 million Americans served; 405,000 never came home.",
+    officialClassification: "Declared War",
+    isWar: true,
+    reveal:
+      "Congress declared war on December 8, 1941 — the day after Pearl Harbor — with only a single dissenting vote (Representative Jeannette Rankin of Montana, a lifelong pacifist). Germany and Italy then declared war on the US, and Congress reciprocated. This was the last time Congress formally declared war on anyone.",
+    icon: "✈️",
+  },
+
+  // ===== EARLY REPUBLIC — NOT DECLARED WARS =====
+  {
+    name: "Quasi-War with France",
+    years: "1798–1800",
+    president: "John Adams",
+    casualties: "~514 US deaths",
+    troopsDeployed: "~30+ naval vessels",
+    region: "Caribbean / Atlantic",
+    description:
+      "After the US signed the Jay Treaty with Britain, France saw it as a betrayal of the Franco-American alliance that had won the Revolution. French privateers began seizing American merchant ships — over 300 vessels in total. The crisis deepened when French officials demanded bribes from American diplomats in the 'XYZ Affair,' outraging the public. The newly created US Navy fought over 30 engagements with French ships across the Caribbean, capturing 85 French vessels. It was a full naval war in everything but name.",
+    officialClassification: "Undeclared Naval War",
+    isWar: false,
+    reveal:
+      "It's literally named the 'Quasi-War' because Congress never declared war. Despite two years of naval combat, 514 American deaths, and 85 captured French ships, the conflict was resolved through diplomacy. The Supreme Court later ruled in Bas v. Tingy (1800) that it was a 'limited, partial war' — which is apparently a legal distinction.",
+    icon: "⛵",
+  },
+  {
+    name: "First Barbary War",
+    years: "1801–1805",
+    president: "Thomas Jefferson",
+    casualties: "~35 US deaths",
+    troopsDeployed: "Multiple naval squadrons + 8 Marines",
+    region: "Mediterranean / North Africa",
+    description:
+      "For years, the Barbary states of North Africa — Tripoli, Algiers, Tunis, and Morocco — had been demanding tribute payments from nations whose ships sailed the Mediterranean. When Jefferson refused to pay, the Pasha of Tripoli declared war on the US by cutting down the flagpole at the American consulate. Jefferson sent the Navy. The USS Philadelphia ran aground and was captured; Stephen Decatur led a daring raid to burn it rather than let it be used against the US. Eight Marines and hundreds of mercenaries marched 500 miles across the Libyan desert to capture the city of Derna — the 'shores of Tripoli' in the Marines' Hymn.",
+    officialClassification: "Authorized Military Action",
+    isWar: false,
+    reveal:
+      "Congress authorized the use of force but never formally declared war. Jefferson argued that while he couldn't declare war, he could defend against attacks. This set a precedent that every subsequent president has used to deploy military force without a war declaration — a precedent we're still living with today.",
+    icon: "🏴‍☠️",
+  },
+  {
+    name: "Second Barbary War",
+    years: "1815",
+    president: "James Madison",
+    casualties: "~35 US deaths",
+    troopsDeployed: "10 warships, ~5,000 sailors",
+    region: "Mediterranean / North Africa",
+    description:
+      "While the US was distracted fighting the War of 1812, the Barbary states resumed attacking American merchant ships and enslaving their crews. Just months after the war with Britain ended, Madison dispatched a squadron of ten warships under Commodores Stephen Decatur and William Bainbridge. Decatur captured two Algerian warships within days and sailed into Algiers harbor, dictating terms at cannon-point. The Dey of Algiers agreed to stop all tribute payments and release all American prisoners. Decatur then sailed to Tunis and Tripoli and extracted reparations from them too.",
+    officialClassification: "Authorized Naval Expedition",
+    isWar: false,
+    reveal:
+      "Congress authorized the use of naval force against Algiers on March 3, 1815, but never declared war. The entire conflict lasted about three months. When Decatur returned home a hero, he gave a famous toast: 'Our Country! In her intercourse with foreign nations, may she always be in the right; but our country, right or wrong.'",
+    icon: "🚢",
+  },
+  {
+    name: "First Seminole War",
+    years: "1817–1818",
+    president: "James Monroe",
+    casualties: "~30+ US deaths",
+    troopsDeployed: "~3,000+ troops under Andrew Jackson",
+    region: "Florida (then Spanish territory)",
+    description:
+      "Seminole warriors in Spanish Florida were raiding American settlements in Georgia and harboring escaped enslaved people. President Monroe sent Andrew Jackson with orders to pursue the Seminoles — but Jackson went much further. He invaded Spanish Florida entirely, captured the Spanish forts at St. Marks and Pensacola, executed two British traders he accused of aiding the Seminoles, and essentially conquered the territory. Jackson's unauthorized invasion caused an international incident with both Spain and Britain, but ultimately pressured Spain into selling Florida to the US in the Adams-Onís Treaty of 1819.",
+    officialClassification: "Military Expedition / Border Incursion",
+    isWar: false,
+    reveal:
+      "Congress never declared war or even authorized the invasion. Jackson exceeded his orders so dramatically that Congress debated censuring him — but his popularity with the public made him untouchable. His invasion of a foreign nation without Congressional approval set an early precedent for executive overreach that would echo through American history.",
+    icon: "🐊",
+  },
+  // ===== 19TH CENTURY — NOT DECLARED WARS =====
+  {
+    name: "Second Seminole War",
+    years: "1835–1842",
+    president: "Andrew Jackson / Martin Van Buren / John Tyler",
+    casualties: "~1,535 US deaths",
+    troopsDeployed: "~30,000+ over the course of the war",
+    region: "Florida Territory",
+    description:
+      "When the US government tried to forcibly relocate the Seminole people from Florida to Oklahoma under the Indian Removal Act, Seminole leaders — led by Osceola — resisted. What followed was seven years of brutal guerrilla warfare in the Florida swamps and Everglades. It was the longest and most expensive of all the Indian Wars. The US Army struggled against Seminole fighters who used the terrain to devastating effect. Osceola was captured under a flag of truce — one of the most dishonorable acts in American military history. The war cost the US $40 million (over $1 billion today) and ended inconclusively, with a few hundred Seminoles simply refusing to leave.",
+    officialClassification: "Indian Removal Campaign",
+    isWar: false,
+    reveal:
+      "1,535 Americans killed. Seven years of combat. $40 million spent. Three presidents oversaw it. But it was never a declared war — it was classified as an 'Indian removal campaign.' The Seminoles are the only Native American tribe that never signed a peace treaty with the United States.",
+    icon: "🌿",
+  },
+  {
+    name: "The American Civil War",
+    years: "1861–1865",
+    president: "Abraham Lincoln",
+    casualties: "~620,000–750,000 US deaths (both sides)",
+    troopsDeployed: "~3.2 million (Union + Confederate combined)",
+    region: "United States",
+    description:
+      "Eleven Southern states seceded from the Union after Lincoln's election, forming the Confederate States of America. What followed was the deadliest conflict in American history. The Battle of Antietam saw 22,717 casualties in a single day — still the bloodiest day in American history. Sherman's March to the Sea burned a 60-mile-wide path of destruction across Georgia. Over 180,000 Black soldiers served in the Union Army. The war destroyed the Southern economy, freed 4 million enslaved people, and killed more Americans than every other US war combined up to Vietnam. Entire generations of young men were wiped out in battles like Gettysburg, Shiloh, and Cold Harbor.",
+    officialClassification: "Insurrection / Rebellion",
+    isWar: false,
+    reveal:
+      "The deadliest conflict in American history — up to 750,000 dead — was never a declared war. Lincoln deliberately treated it as an insurrection, not a war between nations. Declaring war would have legitimized the Confederacy as a sovereign country and potentially invited European powers to recognize it. So the bloodiest war in US history was, legally, just 'putting down a rebellion.'",
+    icon: "⚔️",
+  },
+  {
+    name: "Great Sioux War",
+    years: "1876–1877",
+    president: "Ulysses S. Grant",
+    casualties: "~314 US deaths (including Custer's entire command)",
+    troopsDeployed: "~2,500+ troops across multiple campaigns",
+    region: "Great Plains / Montana / Dakota Territory",
+    description:
+      "After gold was discovered in the Black Hills — land guaranteed to the Lakota Sioux by the 1868 Treaty of Fort Laramie — the US government tried to buy the land. When the Sioux refused, the Army was sent to force them onto reservations. At the Battle of the Little Bighorn, a coalition of Lakota, Northern Cheyenne, and Arapaho warriors led by Sitting Bull and Crazy Horse annihilated Lt. Col. George Custer and all 210 men of his 7th Cavalry detachment. It was the worst US Army defeat of the Indian Wars. The Army responded with a massive campaign that eventually forced the Sioux onto reservations and seized the Black Hills.",
+    officialClassification: "Military Campaign / Indian Expedition",
+    isWar: false,
+    reveal:
+      "The US violated its own treaty to seize gold-rich land, sent the Army to enforce it, lost one of the most famous battles in American history — and it was never a declared war. The Sioux were fighting to defend territory the US had legally guaranteed them. In 1980, the Supreme Court ruled the seizure of the Black Hills was illegal and awarded $105 million in compensation. The Sioux have refused to accept the money — now worth over $1.3 billion — because they want the land back.",
+    icon: "🦅",
+  },
+  {
+    name: "Philippine-American War",
+    years: "1899–1902 (guerrilla fighting until 1913)",
+    president: "William McKinley / Theodore Roosevelt",
+    casualties: "~4,196 US deaths; ~200,000–1,000,000 Filipino civilian deaths",
+    troopsDeployed: "~126,000 US troops",
+    region: "Southeast Asia / Philippines",
+    description:
+      "When the US acquired the Philippines from Spain, Filipino revolutionaries — who had been fighting Spain for their own independence — expected the US to grant them freedom. Instead, McKinley declared the US would 'civilize and Christianize' the Philippines (a country that had been Catholic for 300 years). War broke out. The US deployed 126,000 troops and fought a brutal counterinsurgency. American forces used waterboarding, burned villages, established concentration camps, and killed civilians. General Jacob Smith famously ordered his troops to kill everyone over the age of 10 on the island of Samar. Hundreds of thousands of Filipino civilians died from violence, famine, and disease.",
+    officialClassification: "Insurrection",
+    isWar: false,
+    reveal:
+      "The US government called it an 'insurrection' — not a war — which framed the Filipinos as rebels against legitimate authority rather than a people fighting for independence. This classification helped avoid Congressional oversight and public scrutiny. Mark Twain, a vocal critic, proposed redesigning the American flag with 'the white stripes painted black and the stars replaced by the skull and cross bones.'",
+    icon: "🌴",
+  },
+  {
+    name: "Boxer Rebellion",
+    years: "1899–1901",
+    president: "William McKinley",
+    casualties: "~131 US deaths",
+    troopsDeployed: "~5,000 US troops (part of 20,000-strong allied force)",
+    region: "China",
+    description:
+      "A Chinese nationalist movement called the 'Righteous and Harmonious Fists' — dubbed 'Boxers' by Westerners — laid siege to the foreign embassy district in Beijing for 55 days, attempting to expel all foreign influence from China. The Empress Dowager Cixi threw her support behind the Boxers. The US joined an eight-nation alliance including Britain, France, Germany, Russia, Japan, Italy, and Austria-Hungary to march on Beijing. Allied forces looted the capital extensively. The resulting 'Boxer Protocol' forced China to pay $333 million in reparations and allow foreign troops to be permanently stationed on Chinese soil.",
+    officialClassification: "Military Expedition",
+    isWar: false,
+    reveal:
+      "5,000 US troops fought alongside seven other nations to invade a sovereign country and occupy its capital. McKinley sent troops without Congressional approval, claiming it was a rescue mission for besieged diplomats. The US share of the reparations was $25 million; in 1908, the US returned the excess funds, which China used to send students to American universities — the origin of Tsinghua University.",
+    icon: "🐉",
+  },
+  {
+    name: "Banana Wars",
+    years: "1898–1934",
+    president: "McKinley through FDR (7 presidents)",
+    casualties: "~300+ US deaths",
+    troopsDeployed: "Tens of thousands across multiple deployments",
+    region: "Central America / Caribbean",
+    description:
+      "Over four decades, the US military intervened repeatedly across Latin America and the Caribbean — Honduras (7 times), Nicaragua, Haiti, Cuba, Mexico, the Dominican Republic, Guatemala, and Panama. The interventions protected the interests of American corporations like the United Fruit Company, enforced debt repayment, and propped up friendly governments. US Marines occupied Haiti for 19 years (1915–1934) and the Dominican Republic for 8 years (1916–1924). In Nicaragua, the US backed a series of coups and occupations that lasted decades. Two-time Medal of Honor recipient Major General Smedley Butler, who led many of these operations, later wrote a famous exposé about what he'd done.",
+    officialClassification: "Military Interventions / Occupations",
+    isWar: false,
+    reveal:
+      "Decades of military occupations across nearly a dozen countries — but never a 'war.' Smedley Butler wrote in 1935: 'I spent 33 years in active military service... a high class muscle man for Big Business. I helped make Mexico safe for American oil interests. I helped make Haiti and Cuba a decent place for the National City Bank boys to collect revenues. I helped purify Nicaragua for the International Banking House of Brown Brothers.'",
+    icon: "🍌",
+  },
+  {
+    name: "US Occupation of Veracruz",
+    years: "1914",
+    president: "Woodrow Wilson",
+    casualties: "~22 US deaths",
+    troopsDeployed: "~3,000+ sailors and Marines",
+    region: "Mexico",
+    description:
+      "During the Mexican Revolution, a group of US sailors was briefly detained in Tampico, Mexico. Although they were quickly released with an apology, the US naval commander demanded a 21-gun salute to the American flag — which Mexico refused. Wilson used the incident, plus intelligence that a German arms shipment was headed to Veracruz, to order the Navy and Marines to seize and occupy Mexico's largest port city. Street-by-street fighting with Mexican cadets and civilians killed hundreds of Mexicans and 22 Americans. The US held Veracruz for seven months.",
+    officialClassification: "Military Occupation",
+    isWar: false,
+    reveal:
+      "Wilson seized a foreign city and occupied it for seven months because of a perceived insult to the American flag. Congress never declared war. Fifty-five Medals of Honor were awarded for the operation — more than any other single engagement in the 20th century. Among the recipients: a young officer named Douglas MacArthur's nomination was submitted but ultimately not approved.",
+    icon: "🇲🇽",
+  },
+  {
+    name: "Pancho Villa Expedition",
+    years: "1916–1917",
+    president: "Woodrow Wilson",
+    casualties: "~65 US deaths",
+    troopsDeployed: "~10,000 troops under General Pershing",
+    region: "Northern Mexico",
+    description:
+      "After Mexican revolutionary Pancho Villa raided the town of Columbus, New Mexico — killing 18 Americans — Wilson sent 10,000 troops under General John 'Black Jack' Pershing 500 miles deep into Mexican territory to hunt Villa down. The expedition lasted 11 months and included the first use of motorized vehicles and airplanes by the US Army in a combat operation. Despite deploying 10,000 soldiers into a foreign country for nearly a year, they never caught Villa. The expedition nearly triggered a full-scale war with Mexico when US forces clashed with the Mexican federal army at the Battle of Carrizal.",
+    officialClassification: "Punitive Expedition",
+    isWar: false,
+    reveal:
+      "10,000 US troops invaded Mexico for 11 months. Congress never declared war. It was officially a 'punitive expedition.' Pershing would later command all US forces in World War I. A young lieutenant named George S. Patton participated in what may have been the first motorized assault in US military history — he attacked a hacienda in three Dodge touring cars.",
+    icon: "🐎",
+  },
+  {
+    name: "Russian Civil War Intervention",
+    years: "1918–1920",
+    president: "Woodrow Wilson",
+    casualties: "~424 US deaths",
+    troopsDeployed: "~13,000 troops in two expeditions",
+    region: "Russia — Arctic and Siberia",
+    description:
+      "After the Bolshevik Revolution, Wilson sent American troops to two remote corners of Russia. The 'Polar Bear Expedition' deployed 5,000 troops to Archangel in the Russian Arctic, where they fought Bolshevik forces in temperatures reaching -50°F. Another 8,000 troops were sent to Vladivostok in Siberia, ostensibly to guard military supplies and support the evacuation of the Czechoslovak Legion. American troops in the north engaged in months of combat against the Red Army. The soldiers famously had no idea why they were there — many hadn't even been told they were going to Russia until they were on the ship.",
+    officialClassification: "Military Expedition",
+    isWar: false,
+    reveal:
+      "The US literally invaded Russia with 13,000 troops. Congress never declared war, never authorized the intervention, and was barely consulted. Wilson acted entirely on executive authority. American soldiers fought and died in Russia's civil war — many without ever understanding the mission. Their bodies weren't recovered for years; the last were brought home in 1934.",
+    icon: "❄️",
+  },
+  {
+    name: "US Occupation of Haiti",
+    years: "1915–1934",
+    president: "Wilson through FDR",
+    casualties: "~148 US deaths; ~15,000+ Haitian deaths",
+    troopsDeployed: "~2,000 Marines (peak strength)",
+    region: "Caribbean",
+    description:
+      "After political instability in Haiti — including the assassination and dismemberment of President Vilbrun Guillaume Sam by a mob — Wilson sent 330 Marines to Port-au-Prince. The occupation lasted 19 years across five US presidents. The US took control of Haiti's customs houses, rewrote its constitution (with a young Franklin Roosevelt claiming credit), dissolved the legislature at gunpoint, and imposed forced labor through the corvée system — essentially reinstating a form of slavery. When Haitian rebels called 'Cacos' resisted, the Marines launched a counterinsurgency that killed thousands. The Marines finally withdrew in 1934 under FDR's 'Good Neighbor Policy.'",
+    officialClassification: "Military Occupation / Peacekeeping",
+    isWar: false,
+    reveal:
+      "19 years of military occupation. A rewritten constitution. Forced labor. Thousands of Haitians killed. But never a declared war. The occupation devastated Haiti's political institutions and economy — consequences that scholars argue Haiti is still dealing with over a century later.",
+    icon: "🏛️",
+  },
+  // ===== COLD WAR ERA =====
+  {
+    name: "Korean War",
+    years: "1950–1953",
+    president: "Harry S. Truman / Dwight Eisenhower",
+    casualties: "~36,574 US deaths",
+    troopsDeployed: "~1.8 million Americans served",
+    region: "Korean Peninsula / East Asia",
+    description:
+      "On June 25, 1950, North Korean forces poured across the 38th parallel with 75,000 troops, nearly pushing US and South Korean forces into the sea. General MacArthur's amphibious landing at Inchon reversed the tide, and UN forces pushed all the way to the Chinese border — prompting China to enter the war with 300,000 troops. The Battle of Chosin Reservoir saw US Marines fight their way out of a Chinese encirclement in -35°F temperatures. The war settled into a bloody stalemate near the original border. An armistice was signed in 1953, but no peace treaty ever followed — technically, the war never ended.",
+    officialClassification: "Police Action",
+    isWar: false,
+    reveal:
+      "Truman called it a 'police action' — not a war. 36,574 Americans died in a 'police action.' Congress never declared war; Truman used a UN Security Council resolution (passed only because the Soviet Union was boycotting the council) as authorization. The Korean War is sometimes called 'The Forgotten War' — and it was never even legally a war to begin with.",
+    icon: "🪖",
+  },
+  {
+    name: "Lebanon Crisis",
+    years: "1958",
+    president: "Dwight Eisenhower",
+    casualties: "~4 US deaths (1 combat, 3 accidents)",
+    troopsDeployed: "~14,000 troops",
+    region: "Middle East",
+    description:
+      "When a pro-Western government in Lebanon faced a political crisis fueled by pan-Arab nationalism and the recent overthrow of Iraq's monarchy, President Eisenhower sent 14,000 Marines and Army troops to Beirut under the newly proclaimed 'Eisenhower Doctrine' — which promised US military aid to any Middle Eastern country threatened by communism. It was the first application of this doctrine. The troops landed on the beaches of Beirut, where they were met not by enemy fighters but by sunbathers and vendors selling Coca-Cola. The intervention lasted about three months.",
+    officialClassification: "Military Intervention (Eisenhower Doctrine)",
+    isWar: false,
+    reveal:
+      "14,000 US troops deployed to a foreign country. Congress never declared war. Eisenhower invoked executive authority and a vague congressional resolution. The Marines who stormed the beach at Beirut found themselves wading through a crowd of Lebanese civilians in swimsuits — one of the more surreal scenes in American military history.",
+    icon: "🏖️",
+  },
+  {
+    name: "Bay of Pigs Invasion",
+    years: "1961",
+    president: "John F. Kennedy",
+    casualties: "~4 US deaths; 114 Cuban exiles killed",
+    troopsDeployed: "~1,400 CIA-trained Cuban exiles (Brigade 2506)",
+    region: "Caribbean / Cuba",
+    description:
+      "The CIA recruited, trained, and armed 1,400 Cuban exiles at secret camps in Guatemala to invade Cuba and overthrow Fidel Castro. JFK inherited the plan from Eisenhower and approved it — but cancelled the air cover at the last minute to maintain 'plausible deniability.' The exiles landed at the Bay of Pigs on April 17, 1961, and were immediately pinned down. Castro's forces — who had been tipped off — counterattacked with tanks, aircraft, and 20,000 troops. Within 72 hours, the invasion was crushed. 1,189 exiles were captured and eventually ransomed back for $53 million in food and medicine.",
+    officialClassification: "Covert Operation",
+    isWar: false,
+    reveal:
+      "A US-organized military invasion of a sovereign nation, using US-trained and US-armed forces launching from US-allied territory — classified as a 'covert operation.' JFK publicly denied US involvement even as the world watched. He later told an aide: 'How could I have been so stupid?' The debacle emboldened the Soviet Union and directly contributed to the Cuban Missile Crisis 18 months later.",
+    icon: "🐷",
+  },
+  {
+    name: "Vietnam War",
+    years: "1955–1975",
+    president: "Eisenhower through Ford (5 presidents)",
+    casualties: "~58,220 US deaths",
+    troopsDeployed: "~2.7 million Americans served in-country",
+    region: "Southeast Asia",
+    description:
+      "What began as military advisors under Eisenhower escalated into a full-scale war under Johnson. At its peak in 1968, over 536,000 US troops were in Vietnam. The Tet Offensive shattered public confidence that the war was winnable. The My Lai Massacre, in which US soldiers killed between 347 and 504 unarmed Vietnamese civilians, shocked the world when it became public. The Pentagon Papers revealed that the government had systematically lied about the war's progress. Nixon expanded the war into Cambodia and Laos while claiming to wind it down. The draft sent 2.2 million men to war; 58,220 never came home. The war divided American society like nothing since the Civil War.",
+    officialClassification: "Armed Conflict / Military Engagement",
+    isWar: false,
+    reveal:
+      "58,220 Americans killed. 2.7 million deployed. 20 years of fighting across three countries. 5 presidents. But Congress never declared war. The Gulf of Tonkin Resolution — passed after a reported North Vietnamese attack on US ships that likely never happened — authorized the president to use force. It was repealed in 1971, but the war continued for four more years anyway.",
+    icon: "🚁",
+  },
+  {
+    name: "Invasion of the Dominican Republic",
+    years: "1965–1966",
+    president: "Lyndon B. Johnson",
+    casualties: "~47 US deaths",
+    troopsDeployed: "~42,000 US troops (peak)",
+    region: "Caribbean",
+    description:
+      "When a military coup attempted to restore the democratically elected president Juan Bosch, LBJ sent 42,000 troops — initially claiming it was to protect American citizens, then shifting his justification to preventing 'another Cuba.' The US troops occupied Santo Domingo and supported the conservative military faction. Johnson claimed communists were behind the revolt, producing a list of 58 'identified communists' — which journalists quickly debunked as containing dead people, people not in the country, and names pulled from old files. The occupation lasted over a year and supervised new elections won by a US-backed candidate.",
+    officialClassification: "Military Intervention / Peacekeeping Operation",
+    isWar: false,
+    reveal:
+      "42,000 troops invaded and occupied a sovereign nation. Johnson's list of 58 communists justifying the invasion was publicly discredited. Congress never declared war. The intervention effectively overturned a democratic movement and installed a US-friendly government — while being labeled a 'peacekeeping operation.'",
+    icon: "🏝️",
+  },
+  {
+    name: "Cambodian Campaign",
+    years: "1970",
+    president: "Richard Nixon",
+    casualties: "~338 US deaths; ~818 wounded",
+    troopsDeployed: "~80,000 US and South Vietnamese troops",
+    region: "Southeast Asia / Cambodia",
+    description:
+      "Nixon ordered 80,000 US and South Vietnamese troops to invade Cambodia — a neutral country — to destroy North Vietnamese supply routes along the Ho Chi Minh Trail. He announced the invasion on national television, calling it an 'incursion, not an invasion.' The operation triggered massive protests across the US. At Kent State University, Ohio National Guard troops fired on student protesters, killing four and wounding nine. At Jackson State in Mississippi, police fired on a dormitory, killing two students. Over 4 million students went on strike, shutting down hundreds of colleges.",
+    officialClassification: "Incursion",
+    isWar: false,
+    reveal:
+      "Nixon invaded a neutral country with 80,000 troops and called it an 'incursion' — carefully avoiding the word 'invasion.' Congress never authorized it. The backlash was so severe that Congress passed the Cooper-Church Amendment to cut off funding, and eventually the War Powers Resolution of 1973 to limit presidential war-making power. Presidents have largely ignored it ever since.",
+    icon: "🌾",
+  },
+  {
+    name: "Operation Eagle Claw (Iran Hostage Rescue)",
+    years: "1980",
+    president: "Jimmy Carter",
+    casualties: "8 US deaths (all from an accident)",
+    troopsDeployed: "~132 special operations forces",
+    region: "Middle East / Iran",
+    description:
+      "After Iranian revolutionaries seized the US Embassy in Tehran and took 52 Americans hostage, Carter authorized a daring rescue mission. The plan called for Delta Force operators to fly into the Iranian desert, refuel, then assault the embassy compound in Tehran. The mission was aborted in the desert when helicopters were damaged by sand storms. During the withdrawal, a helicopter collided with a C-130 transport aircraft, killing eight servicemen. The burning wreckage and abandoned helicopters — with classified documents inside — were broadcast on Iranian television. The failure humiliated the US and contributed to Carter's election loss.",
+    officialClassification: "Rescue Operation",
+    isWar: false,
+    reveal:
+      "A military strike force was sent into a sovereign nation to conduct an armed assault on a compound in its capital city. It was classified as a 'rescue operation.' The disaster led directly to the creation of US Special Operations Command (SOCOM) and a complete overhaul of how special operations are organized and conducted.",
+    icon: "🚁",
+  },
+  {
+    name: "Lebanon Deployment",
+    years: "1982–1984",
+    president: "Ronald Reagan",
+    casualties: "~266 US deaths (241 in the barracks bombing)",
+    troopsDeployed: "~1,800 Marines",
+    region: "Middle East",
+    description:
+      "Reagan deployed 1,800 Marines to Beirut as part of a multinational peacekeeping force during Lebanon's brutal civil war. On October 23, 1983, a truck bomb carrying 12,000 pounds of TNT — equivalent to 21,000 pounds of explosives — drove into the Marine barracks at Beirut International Airport. The explosion killed 241 Marines, sailors, and soldiers — the deadliest single-day death toll for the Marine Corps since Iwo Jima. A simultaneous attack killed 58 French paratroopers. The attack was carried out by the precursor to Hezbollah, backed by Iran. Reagan withdrew US forces four months later.",
+    officialClassification: "Multinational Peacekeeping Force",
+    isWar: false,
+    reveal:
+      "241 Americans killed in the deadliest terrorist attack against US forces up to that point. It was never a declared war — it was a 'multinational peacekeeping force.' Reagan called the attackers 'cowardly' but withdrew the troops rather than escalate. The bombing pioneered the large-scale suicide truck bomb, a tactic that would be used devastatingly for decades to come.",
+    icon: "💥",
+  },
+  {
+    name: "Invasion of Grenada",
+    years: "1983",
+    president: "Ronald Reagan",
+    casualties: "~19 US deaths",
+    troopsDeployed: "~7,600 US troops",
+    region: "Caribbean",
+    description:
+      "Just two days after the Beirut barracks bombing, Reagan ordered 7,600 troops to invade the tiny Caribbean island of Grenada (population: 91,000). The justification: a Marxist military coup had overthrown the government, and 600 American medical students on the island were allegedly in danger. The operation was chaotic — Army and Marine units couldn't communicate by radio because they used different frequencies, soldiers famously had to use a payphone to call Fort Bragg for fire support, and troops accidentally bombed a mental hospital. Despite the disorganization, the island was secured within days. Most of the medical students said they hadn't felt threatened.",
+    officialClassification: "Rescue Operation",
+    isWar: false,
+    reveal:
+      "An invasion of a sovereign country with 7,600 troops was officially a 'rescue operation.' The UN General Assembly voted 108 to 9 to condemn it as 'a flagrant violation of international law.' The medical students — the supposed reason for the invasion — were paraded in front of cameras kissing American soil when they returned. Reagan's approval rating jumped 4 points.",
+    icon: "🌺",
+  },
+  {
+    name: "Tanker War (Operation Earnest Will)",
+    years: "1987–1988",
+    president: "Ronald Reagan",
+    casualties: "~37 US deaths (USS Stark attack)",
+    troopsDeployed: "Major naval task force, aircraft carrier groups",
+    region: "Persian Gulf",
+    description:
+      "During the Iran-Iraq War, both sides attacked oil tankers in the Persian Gulf, threatening the global oil supply. The US re-flagged Kuwaiti tankers as American vessels and deployed a massive naval force to escort them. In May 1987, an Iraqi jet hit the USS Stark with two Exocet missiles, killing 37 sailors — Iraq apologized and called it an accident. In April 1988, after the USS Samuel B. Roberts hit an Iranian mine, the US launched Operation Praying Mantis — the largest American naval battle since World War II — sinking or damaging half of Iran's operational navy. In July 1988, the USS Vincennes shot down Iran Air Flight 655, a civilian airliner, killing all 290 people aboard, including 66 children.",
+    officialClassification: "Naval Escort Operations",
+    isWar: false,
+    reveal:
+      "The US fought its largest naval battle since WWII, destroyed half of Iran's navy, and accidentally shot down a civilian airliner killing 290 innocent people. It was 'naval escort operations.' Congress never declared war. The captain of the Vincennes received the Legion of Merit for his service. Iran Air Flight 655 remains one of the deadliest aviation incidents in history.",
+    icon: "⚓",
+  },
+  {
+    name: "Invasion of Panama",
+    years: "1989–1990",
+    president: "George H.W. Bush",
+    casualties: "~40 US deaths; ~200–4,000+ Panamanian deaths",
+    troopsDeployed: "~27,684 US troops",
+    region: "Central America",
+    description:
+      "Manuel Noriega had been a paid CIA asset for decades, but by the late 1980s he was indicted for drug trafficking and had become an embarrassment. When Noriega annulled a democratic election he lost and declared a 'state of war' with the US, Bush launched Operation Just Cause — 27,684 troops invaded Panama in the largest US military operation since Vietnam. US forces bombed the El Chorrillo neighborhood near Noriega's headquarters, destroying thousands of homes and displacing 15,000 people. Noriega took refuge in the Vatican Embassy; US forces blasted rock music — including 'Welcome to the Jungle' and 'I Fought the Law' — at the embassy 24/7 until he surrendered after 10 days.",
+    officialClassification: "Military Operation",
+    isWar: false,
+    reveal:
+      "The US invaded a country, overthrew its government, captured its leader, and installed a new president — all without declaring war. It was a 'military operation.' Noriega was flown to Miami and convicted of drug trafficking. The El Chorrillo neighborhood was so thoroughly destroyed that Panamanians call it 'little Hiroshima.'",
+    icon: "🎖️",
+  },
+  {
+    name: "Gulf War (Operation Desert Storm)",
+    years: "1990–1991",
+    president: "George H.W. Bush",
+    casualties: "~383 US deaths",
+    troopsDeployed: "~694,000 US troops",
+    region: "Middle East / Persian Gulf",
+    description:
+      "After Saddam Hussein invaded Kuwait in August 1990, the US built a coalition of 35 nations and deployed 694,000 American troops to Saudi Arabia in Operation Desert Shield. The air campaign — Operation Desert Storm — began on January 17, 1991 with the most intense aerial bombardment in history: 100,000+ sorties over 42 days. Stealth bombers, cruise missiles, and precision-guided munitions were used on a large scale for the first time. The ground war lasted just 100 hours. Iraqi forces fleeing Kuwait on Highway 80 were bombed so relentlessly that it became known as the 'Highway of Death.' The war ended with Kuwait liberated but Saddam still in power.",
+    officialClassification: "Authorized Use of Military Force",
+    isWar: false,
+    reveal:
+      "694,000 US troops. 35-nation coalition. 100,000+ air sorties. A 100-hour ground war. Congress authorized force but did NOT declare war — the Senate vote was close, 52-47. The 'Highway of Death' images were so gruesome that they influenced the decision to stop the ground offensive after just 100 hours, leaving Saddam in power for another 12 years.",
+    icon: "🛢️",
+  },
+  {
+    name: "Intervention in Somalia",
+    years: "1992–1994",
+    president: "George H.W. Bush / Bill Clinton",
+    casualties: "~43 US deaths (18 on October 3, 1993 alone)",
+    troopsDeployed: "~25,000 US troops (peak, initial deployment)",
+    region: "East Africa",
+    description:
+      "With Somalia in the grip of civil war and famine, Bush deployed 25,000 troops for a humanitarian mission to protect food aid. Under Clinton, the mission shifted to nation-building and targeting warlord Mohamed Farrah Aidid. On October 3, 1993, a raid to capture Aidid's lieutenants went catastrophically wrong. Two Black Hawk helicopters were shot down in the streets of Mogadishu. What was supposed to be a 30-minute operation turned into a 15-hour battle. 18 Americans were killed, 73 wounded, and pilot Michael Durant was captured. The bodies of dead American soldiers were dragged through the streets on live television. Clinton withdrew US forces within months.",
+    officialClassification: "Humanitarian Intervention / Peacekeeping",
+    isWar: false,
+    reveal:
+      "What began as humanitarian aid became the most intense urban combat US forces had experienced since Vietnam. Nearly 1,000 Somalis were killed in the Battle of Mogadishu — and the whole thing was classified as a 'humanitarian intervention.' The images of dead soldiers being dragged through streets made the US reluctant to intervene in future crises — including the 1994 Rwandan genocide.",
+    icon: "🦅",
+  },
+  {
+    name: "Bombing of Yugoslavia / Kosovo War",
+    years: "1999",
+    president: "Bill Clinton",
+    casualties: "~2 US deaths",
+    troopsDeployed: "~37,000 US troops; 1,100 aircraft",
+    region: "Southeastern Europe / Balkans",
+    description:
+      "As Serbian forces conducted ethnic cleansing against Kosovo Albanians — killing an estimated 10,000 civilians and displacing 1.5 million — Clinton ordered a NATO bombing campaign. For 78 days, US and NATO aircraft flew 38,000 sorties, dropping 23,000 bombs and missiles on Serbia and Kosovo. The US used B-2 stealth bombers for the first time in combat, flying 30-hour round trips from Missouri. An F-117 stealth fighter — supposedly invisible to radar — was shot down by a Serbian missile crew using creative tactics. The bombing hit the Chinese embassy in Belgrade, killing three journalists, causing a major diplomatic crisis.",
+    officialClassification: "NATO Air Campaign / Humanitarian Intervention",
+    isWar: false,
+    reveal:
+      "78 days of bombing a sovereign nation. 23,000 bombs dropped. No Congressional declaration of war. No UN authorization (Russia vetoed it). The House of Representatives actually voted AGAINST authorizing the air strikes 213-213 — a tie — but Clinton continued the bombing anyway, arguing NATO authority was sufficient. Congress literally voted to not authorize the operation, and it kept going.",
+    icon: "🎯",
+  },
+  {
+    name: "Operation Desert Fox (Bombing of Iraq)",
+    years: "1998",
+    president: "Bill Clinton",
+    casualties: "0 US deaths",
+    troopsDeployed: "Naval and air assets",
+    region: "Middle East / Iraq",
+    description:
+      "When Saddam Hussein expelled UN weapons inspectors, Clinton ordered a 4-day bombing campaign against Iraqi military and suspected weapons sites. Over 600 sorties were flown and 415 cruise missiles were launched — more cruise missiles than in the entire Gulf War. The timing was controversial: the strikes began on the same day the House of Representatives was scheduled to debate Clinton's impeachment, leading critics to accuse him of 'wagging the dog' to distract from the scandal. The bombings degraded Iraq's air defenses but did not topple Saddam or find any weapons of mass destruction.",
+    officialClassification: "Military Strike",
+    isWar: false,
+    reveal:
+      "415 cruise missiles and 600 bombing sorties against a sovereign nation over 4 days — not a war. Clinton cited the 1991 Gulf War authorization and his inherent powers as Commander-in-Chief. The operation's timing during impeachment proceedings raised serious questions about whether military force was being used as a political tool.",
+    icon: "🚀",
+  },
+
+  // ===== POST-9/11 AND MODERN =====
+  {
+    name: "War in Afghanistan",
+    years: "2001–2021",
+    president: "Bush, Obama, Trump, Biden (4 presidents)",
+    casualties: "~2,459 US deaths; ~70,000+ Afghan civilian deaths",
+    troopsDeployed: "~775,000 Americans served; 100,000 at peak",
+    region: "Central / South Asia",
+    description:
+      "Three weeks after 9/11, US forces invaded Afghanistan to topple the Taliban and destroy al-Qaeda. Kabul fell within two months, and Osama bin Laden fled to Tora Bora, where he escaped into Pakistan. What was supposed to be a quick strike turned into 20 years of nation-building, counterinsurgency, and endless deployments. At its peak, 100,000 US troops were stationed in Afghanistan alongside NATO allies. The war cost over $2.3 trillion. Bin Laden was finally killed in Pakistan — not Afghanistan — in 2011, but the war continued for another decade. When the US withdrew in August 2021, the Afghan government collapsed in 11 days and the Taliban retook the entire country. The chaotic evacuation from Kabul airport, with desperate Afghans clinging to departing aircraft, became an indelible image.",
+    officialClassification: "Authorization for Use of Military Force (AUMF)",
+    isWar: false,
+    reveal:
+      "America's longest war — 20 years across 4 presidents — was never a declared war. The 2001 AUMF that authorized it has been used to justify military operations in at least 22 countries. The war cost $2.3 trillion, killed over 2,400 Americans and 70,000+ Afghan civilians, and ended with the Taliban back in power — exactly where they started.",
+    icon: "🏔️",
+  },
+  {
+    name: "Iraq War",
+    years: "2003–2011",
+    president: "George W. Bush / Barack Obama",
+    casualties: "~4,431 US deaths; ~200,000+ Iraqi civilian deaths",
+    troopsDeployed: "~1 million+ Americans served; 170,000 at peak",
+    region: "Middle East",
+    description:
+      "The Bush administration claimed Iraq had weapons of mass destruction and ties to al-Qaeda — both turned out to be false. Secretary of State Colin Powell presented the case at the UN using intelligence that was later discredited. The invasion began with 'shock and awe' — a massive aerial bombardment of Baghdad broadcast live on television. Saddam was captured hiding in a hole and later executed. But the US had no plan for the aftermath. The disbanding of the Iraqi army created 400,000 unemployed, armed, trained men — many of whom joined the insurgency. Sectarian civil war erupted. Abu Ghraib prison abuse photos shocked the world. The insurgency spawned ISIS. No weapons of mass destruction were ever found.",
+    officialClassification: "Authorization for Use of Military Force Against Iraq",
+    isWar: false,
+    reveal:
+      "A full-scale invasion and 8-year occupation based on intelligence that was wrong. Over a million Americans served. Congress authorized the 'use of force' but did not declare war. The distinction allowed the executive branch to maintain control over the scope and conduct of the conflict with less Congressional oversight than a formal war declaration would have required.",
+    icon: "🏜️",
+  },
+  {
+    name: "Military Intervention in Libya",
+    years: "2011",
+    president: "Barack Obama",
+    casualties: "~0 US combat deaths",
+    troopsDeployed: "Naval and air assets; no ground troops officially",
+    region: "North Africa",
+    description:
+      "During the Arab Spring, Libyan dictator Muammar Gaddafi threatened to hunt down rebels 'house by house, room by room.' Obama authorized US participation in a NATO bombing campaign, initially to protect civilians under a UN resolution. Over seven months, the US and NATO flew 9,700 strike sorties and launched 220+ Tomahawk missiles. The campaign went well beyond civilian protection — it directly enabled rebel forces to overthrow and kill Gaddafi. The power vacuum that followed plunged Libya into years of civil war, created a haven for ISIS, and opened migrant smuggling routes that contributed to the European refugee crisis.",
+    officialClassification: "Kinetic Military Action",
+    isWar: false,
+    reveal:
+      "The Obama administration introduced a new term to the lexicon: 'kinetic military action.' 7 months of bombing, 9,700 strike sorties, and regime change — but the administration argued it didn't constitute 'hostilities' under the War Powers Resolution because there were no US ground troops and the risk to American forces was minimal. Multiple legal advisors within the administration disagreed with this interpretation.",
+    icon: "🎯",
+  },
+  {
+    name: "Military Intervention in Syria",
+    years: "2014–present",
+    president: "Obama, Trump, Biden (3 presidents)",
+    casualties: "~60+ US deaths",
+    troopsDeployed: "~2,000 US troops (current); thousands rotated through",
+    region: "Middle East",
+    description:
+      "After ISIS conquered large swaths of Iraq and Syria — declaring a caliphate and broadcasting mass executions — Obama authorized airstrikes and deployed special operations forces. The US allied with Kurdish YPG fighters, creating an effective ground force that eventually liberated ISIS's capital of Raqqa. At one point, US-backed forces occupied roughly a third of Syria. In 2017, the US launched 59 Tomahawk missiles at a Syrian airbase after Assad used chemical weapons. In 2018, a mysterious battle at Deir ez-Zor saw US forces kill an estimated 200–300 Russian mercenaries from the Wagner Group — one of the few direct combat engagements between US and Russian forces in history. US troops remain in Syria today.",
+    officialClassification: "Counter-Terrorism Operation (Operation Inherent Resolve)",
+    isWar: false,
+    reveal:
+      "Thousands of airstrikes, ground troops occupying a third of a sovereign nation, direct combat with Russian mercenaries, and Tomahawk missile strikes against a government airfield — authorized under the 2001 AUMF, which was written to fight al-Qaeda. ISIS didn't even exist when the authorization was passed. US troops are still there, operating under a legal authority written for a different enemy in a different country over two decades ago.",
+    icon: "🔥",
+  },
+  {
+    name: "Drone War in Pakistan",
+    years: "2004–2018",
+    president: "Bush, Obama, Trump",
+    casualties: "0 US combat deaths",
+    troopsDeployed: "CIA drone operators (remote)",
+    region: "South Asia / Pakistan's tribal areas",
+    description:
+      "The CIA conducted over 400 drone strikes in Pakistan's Federally Administered Tribal Areas, targeting al-Qaeda and Taliban leaders. The strikes were carried out from bases thousands of miles away, with operators at CIA headquarters or in Nevada. Pakistan publicly condemned the strikes while privately allowing them. The 'signature strike' program allowed the CIA to target groups of military-age males based on behavior patterns — without knowing their identities. Estimates of civilian deaths range from 400 to over 900, including dozens of children. The strikes were kept secret from the American public for years; the CIA's drone program was officially classified even as videos of the strikes appeared on the news.",
+    officialClassification: "Covert Counter-Terrorism Operations",
+    isWar: false,
+    reveal:
+      "Over 400 strikes in a country the US was not at war with, killing an estimated 2,500–4,000 people — many of them unidentified at the time of the strike. The entire program was technically classified as a covert intelligence operation. The US government refused to officially acknowledge it existed for years, even as it was widely reported in the media.",
+    icon: "🤖",
+  },
+  {
+    name: "Drone War in Yemen",
+    years: "2002–present",
+    president: "Bush through Biden (4+ presidents)",
+    casualties: "Classified",
+    troopsDeployed: "CIA and JSOC drone operators; small special operations teams",
+    region: "Arabian Peninsula",
+    description:
+      "The first US drone strike outside of a conventional war zone hit a car in Yemen in 2002, killing six people including a US citizen. Over the next two decades, the US conducted hundreds of drone strikes and special operations raids against al-Qaeda in the Arabian Peninsula (AQAP). In 2011, a US drone strike killed Anwar al-Awlaki, a US-born cleric and AQAP propagandist — the first deliberate killing of a US citizen without trial. Two weeks later, another strike killed his 16-year-old son, Abdulrahman, also a US citizen, who was not a target. The US also supported Saudi Arabia's bombing campaign in Yemen starting in 2015, providing targeting intelligence, aerial refueling, and weapons — contributing to what the UN called the world's worst humanitarian crisis.",
+    officialClassification: "Targeted Strikes / Counter-Terrorism",
+    isWar: false,
+    reveal:
+      "Two decades of strikes in a country the US was never at war with. US drones have killed American citizens without trial. The US has supported a Saudi bombing campaign that has killed thousands of Yemeni civilians and created a famine affecting millions. All of it authorized under the same 2001 AUMF or under claimed inherent executive authority — never as a declared war.",
+    icon: "📡",
+  },
+  {
+    name: "US Military Operations in West Africa",
+    years: "2013–present",
+    president: "Obama, Trump, Biden",
+    casualties: "~8 US deaths (4 in Niger ambush, 2017)",
+    troopsDeployed: "~6,000–7,000 across the continent (peak)",
+    region: "West / Central Africa — Niger, Somalia, Libya, Cameroon, Chad",
+    description:
+      "Most Americans had no idea the US had troops in Niger until October 2017, when four US soldiers were killed in an ambush by ISIS-affiliated fighters near the village of Tongo Tongo. It emerged that the US had approximately 800 troops in Niger alone, operating from drone bases and training local forces. Across Africa, the US has built a network of bases and outposts in over a dozen countries — conducting drone strikes in Somalia (over 200 strikes since 2007), training missions in Cameroon and Chad, and special operations raids across the continent. AFRICOM, the US military's Africa Command, oversees operations spanning 53 countries.",
+    officialClassification: "Advise and Assist / Counter-Terrorism",
+    isWar: false,
+    reveal:
+      "Most Americans learned the US had combat troops in Niger only when four soldiers came home in coffins. When asked to authorize the operations, Congress largely admitted they didn't know about them. Senator Lindsey Graham said: 'I didn't know there was 1,000 troops in Niger.' The US military operates across dozens of African countries under the 2001 AUMF and various executive authorities — all without a war declaration or, apparently, much Congressional awareness.",
+    icon: "🌍",
+  },
+];
