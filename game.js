@@ -69,6 +69,7 @@ function renderRound() {
   const imgWrap = document.getElementById("conflict-image-wrap");
   const img = document.getElementById("conflict-image");
   if (c.image) {
+    img.onerror = () => imgWrap.classList.add("hidden");
     img.src = c.image;
     img.alt = c.name;
     imgWrap.classList.remove("hidden");
